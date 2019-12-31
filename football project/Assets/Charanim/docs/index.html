@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Charanim3D</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="charanim3d">Charanim3D</h1>
+<ul>
+<li><strong>Create locomotion (walk, run) animations in 15 minutes.</strong></li>
+</ul>
+<blockquote>
+<iframe width="200" height="200" src="https://www.youtube.com/embed/xKvvCTpwwik" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><iframe width="200" height="100" src="https://www.youtube.com/embed/-iLVQDXaEyw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</blockquote>
+<h1 id="create-walk-animation-cycle">Create walk animation cycle</h1>
+<h2 id="setup">1) Setup</h2>
+<ul>
+<li>In <a href="https://unity3d.com/">Unity3d</a>, open the asset store by going to the menu and clicking <strong>Window -&gt; General -&gt; Asset Store</strong> or <strong>Window -&gt; Asset Store</strong> or <strong>Command+9</strong></li>
+<li>Search for Charanim3D, install the asset.</li>
+<li>Once the asset is installed, go to the menu and click <strong>Window -&gt; Charanim3D</strong>
+<ul>
+<li><img src="images/setup1.png" /></li>
+<li><img src="images/setup2.png" /></li>
+</ul></li>
+</ul>
+<h2 id="add-the-animatedobject-component">2) Add the AnimatedObject Component</h2>
+<ul>
+<li>In the gameobject hierarchy, select the character you wish to animate.
+<ul>
+<li><img src="images/add_animated_object.png" /></li>
+</ul></li>
+<li>Click on <strong>Add AnimatedObject Component</strong>.
+<ul>
+<li><img src="images/add_animated_object2.png" /></li>
+</ul></li>
+</ul>
+<h2 id="add-the-bones-to-use-for-the-animation">3) Add the bones to use for the animation</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Bones</strong>.
+<ul>
+<li><img src="images/bones1.png" /></li>
+</ul></li>
+<li>Click <strong>Add Mesh Bones</strong>, this will add all the bones in the skeleton.
+<ul>
+<li><img src="images/bones2.png" /></li>
+<li>If for some reason some bones don’t show, try clicking <strong>Add All Bones</strong>.</li>
+<li><img src="images/bones3.png" /></li>
+<li>You can also drag individual bones, from the hierarchy to the <strong>Add bone</strong> input.</li>
+</ul></li>
+<li>Now remove uneseccary bones, you only need the hips, head, hands, feet, and bones linking them.
+<ul>
+<li>You can remove bones by Clicking on <strong>Delete</strong> or <strong>Delete Children</strong>.</li>
+<li><img src="images/bones4.png" /></li>
+<li>The more bones you have, the slower.</li>
+</ul></li>
+</ul>
+<h2 id="add-mirror">4) Add mirror</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Mirror</strong>.
+<ul>
+<li><img src="images/mirror1.png" /></li>
+</ul></li>
+<li>The mirror should divide the character into 2, if not, change the <strong>Mirror Normal</strong> so it does.</li>
+<li>Click on <strong>Add All Pairs</strong>.
+<ul>
+<li><img src="images/mirror2.png" /></li>
+</ul></li>
+</ul>
+<h2 id="set-head">5) Set head</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Head</strong>.
+<ul>
+<li><img src="images/head1.png" /></li>
+</ul></li>
+<li>From the hierarchy, drag the head to the “Set head” input.
+<ul>
+<li><img src="images/head2.png" /></li>
+</ul></li>
+</ul>
+<h2 id="add-hands">6) Add hands</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Hands</strong>.
+<ul>
+<li><img src="images/hand1.png" /></li>
+</ul></li>
+<li>From the hierarchy, drag a hand to the “Add hand” input.
+<ul>
+<li><img src="images/hand1.png" /></li>
+<li>When the mirror is used, you just need to add one hand.</li>
+</ul></li>
+<li>Adjust the path for the hands.
+<ul>
+<li><img src="images/hand3.png" /></li>
+<li><img src="images/hand4.png" /></li>
+</ul></li>
+</ul>
+<h2 id="add-foot">7) Add foot</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Feet</strong>.
+<ul>
+<li><img src="images/foot1.png" /></li>
+</ul></li>
+<li>From the hierarchy, drag a foot to the <strong>Add Foot</strong> input.
+<ul>
+<li>When the mirror is used, you just need to add one foot.</li>
+<li><img src="images/foot2.png" /></li>
+</ul></li>
+<li>From the non-mirrored bone, in the <strong>Colliders</strong> subsection, go to actions and click generate colliders.
+<ul>
+<li>You should see 4 spheres below the foot, these are the colliders.</li>
+<li><img src="images/foot3.6.png" /></li>
+<li>If you don’t see them, you will have to add them manually by clicking the <strong>+</strong> button.
+<ul>
+<li><img src="images/foot4.png" /></li>
+<li>you only need to add 2</li>
+</ul></li>
+<li><img src="images/foot5.png" /></li>
+</ul></li>
+<li>From the non-mirrored/paired bone, in the <strong>Foot Path</strong> sub section, go to actions and click “Generate”
+<ul>
+<li>You should now see a path for the foot.</li>
+</ul></li>
+</ul>
+<h2 id="in-the-charanim3d-tabs-select-bones">8) In the Charanim3D tabs, select <strong>Bones</strong></h2>
+<ul>
+<li>If the foot has any child bone, remove it.
+<ul>
+<li><img src="images/warning_error1.png" /></li>
+</ul></li>
+<li>In the hierarchy, select the non-mirrored “knee” bone, once selected, it should also be selected in the <strong>Bones</strong> page.
+<ul>
+<li><img src="images/warning_error_knee1.png" /></li>
+<li>The “knee” is the parent of the foot.</li>
+<li>If you did not set the mirror, you will have to do this for both knees.</li>
+</ul></li>
+<li>Set the knee’s <strong>Constraint Type</strong> to <strong>Hinge</strong>.
+<ul>
+<li><img src="images/warning_error_knee2.png" /></li>
+<li>You can adjust the plane of the “hinge” by clicking on <strong>Rotate Swing Axis</strong></li>
+</ul></li>
+<li>Alter <strong>Swing1 Limit</strong> or <strong>Swing2 Limit</strong> such that the knee can only move backwards.
+<ul>
+<li><img src="images/warning_error_knee3.png" /></li>
+<li><img src="images/warning_error_knee4.png" /></li>
+</ul></li>
+<li>In the hierarchy, select the non-mirrored “elbow” bone, once selected, it should also be selected in the <strong>Bones</strong> page.
+<ul>
+<li><img src="images/warning_error_elbow1.png" /></li>
+<li>The “elbow” is the parent of the hand</li>
+<li>If you did not set the mirror, you have to do this for each elbow.</li>
+</ul></li>
+<li>Set the elbow’s <strong>Constraint Type</strong> to <strong>Hinge</strong>.
+<ul>
+<li><img src="images/warning_error_elbow2.png" /></li>
+<li>You can adjust the plane of the “hinge” by clicking on <strong>Rotate Swing Axis</strong></li>
+<li><img src="images/warning_error_elbow3.png" /></li>
+</ul></li>
+<li>Alter <strong>Swing1 Limit</strong> or <strong>Swing2 Limit</strong> such that the elbow can only move forward.
+<ul>
+<li><img src="images/warning_error_elbow4.png" /></li>
+<li><img src="images/warning_error_elbow5.png" /></li>
+</ul></li>
+</ul>
+<h2 id="create-animation-file">9) Create animation file</h2>
+<ul>
+<li>In the Charanim3D tabs, select <strong>Animation</strong>.
+<ul>
+<li><img src="images/create_animation1.png" /></li>
+</ul></li>
+<li>You should see the path of your character in the scene.</li>
+<li>Increase the length until there is no warning about path.
+<ul>
+<li><img src="images/create_animation2.png" /></li>
+</ul></li>
+<li>Scroll down, make sure the animation type is <strong>Cycle</strong> .</li>
+<li>Make sure the scene contains collider on which the character can walk.
+<ul>
+<li><img src="images/create_animation3.png" /></li>
+</ul></li>
+<li>Address any other warning or errors.</li>
+<li>Click on <strong>Create Animation Clip</strong>.
+<ul>
+<li><img src="images/create_animation4.png" /></li>
+</ul></li>
+<li>Voila!.</li>
+</ul>
+<hr />
+<h1 id="create-run-animation-cycle">Create run animation cycle</h1>
+<ul>
+<li>Follow the steps for the <strong>Walk Animation</strong></li>
+<li>In the Charanim3D tab, select <strong>Feet</strong>.</li>
+<li>In the <strong>Gait</strong> section, under <strong>Step parameters</strong> make sure the value of <strong>Pass</strong> is set to around 0.5f.
+<ul>
+<li>You can alter this value, which roughly represents the “fly” of the run.</li>
+</ul></li>
+<li>Go back to animation and click <strong>Create Animation</strong>.</li>
+<li>Voila!.</li>
+</ul>
+<hr />
+<h1 id="create-hop-animation-cycle">Create hop animation cycle</h1>
+<ul>
+<li>Follow the steps for the <strong>Walk Animation</strong></li>
+<li>In the Charanim3D tab, select “feet”.</li>
+<li>In the <strong>Gait</strong> section, set the <strong>Step Count</strong> to one.</li>
+<li>In the <strong>Gait</strong> section, under <strong>Step parameters</strong> make sure the value of <strong>Pass</strong> is set to around 0.1f.
+<ul>
+<li>You can alter this value, which roughly represents the “pass” of the hop.</li>
+</ul></li>
+<li>Go back to animation and click <strong>Create Animation</strong>.</li>
+<li>Voila!.</li>
+</ul>
+<hr />
+<h1 id="issues">Issues</h1>
+<ul>
+<li>If after fixing all errors and warnings, you still get bad results, try reducing the “Frame Seperation” multiple times, (dividing by 2 each time). If that does not not fix it, contact us.</li>
+</ul>
+<hr />
+<h1 id="reference">Reference</h1>
+<h2 id="animation-page">Animation Page</h2>
+<ul>
+<li>The root bone and its path are shown.</li>
+<li><strong>Gravity</strong> is just gravity.</li>
+<li><strong>Speed</strong>, is the speed of the character.</li>
+<li><strong>Frame Separation</strong> is precision if the resolver, the lower the better.</li>
+<li><strong>Animation Type</strong> whether the animation should be a cycle or not.
+<ul>
+<li>If set to <strong>Cycle</strong>, a locomotion cycle will be created.</li>
+<li>If set to <strong>Normal</strong>, the animation will just follow the path.</li>
+</ul></li>
+<li><strong>Compress Animation</strong> will enable animation compression.
+<ul>
+<li>Compression takes more time, so you might want to do it at the end.</li>
+</ul></li>
+<li><strong>Straighten tangents</strong> will straighten the tangents of the output animation.</li>
+</ul>
+<h2 id="bones-page">Bones Page</h2>
+<ul>
+<li><strong>Add Bone</strong> allows you to add a single bone by dragging it from the hierarchy.</li>
+<li><strong>Add Mesh Bones</strong> will add bones from the skinned mesh renderer.</li>
+<li><strong>Add All Bones</strong> will add all transforms.</li>
+<li><strong>Delete All Bones</strong> will remove all the bones.</li>
+<li>For each bone you have:
+<ul>
+<li><strong>Delete</strong> which removes the bone.</li>
+<li><strong>Delete Children</strong> will remove all the children of the bone.</li>
+<li><strong>Game Object</strong> represents the gameobject of the bone.</li>
+<li><strong>Contraint Type</strong> can be set to:
+<ul>
+<li><strong>Ball And Socket</strong> which is the default.</li>
+<li><strong>Hinge</strong> this should be the value for the knees and the elbows.</li>
+</ul></li>
+<li><strong>Twist axis</strong> represents the twist axis of the bone’s joint.</li>
+<li><strong>Twist Limits</strong> allows you to set the limits of the twist axis.
+<ul>
+<li>Generally this should not be changed.</li>
+</ul></li>
+<li><strong>Swing1 Axis</strong> represents the swing axis of the bone’s joint.</li>
+<li><strong>Rotate Swing Axis</strong> allows you to rotate Swing1 axis.</li>
+<li><strong>Swing1 Limit</strong> represents the limit of the Swing1 Axis.</li>
+<li><strong>Swing2 Limit</strong> represents the limit of the Swing2 axis.
+<ul>
+<li>For Ball And Socket, the Swing2 Axis is the Cross product of the twist axis, and the Swing1 axis.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="mirror-page">Mirror Page</h2>
+<ul>
+<li><strong>Mirror Normal</strong> represents the mirror.
+<ul>
+<li>The <strong>Mirrors Normal</strong> should always separate the character into 2.</li>
+</ul></li>
+<li>When the mirror is added, bones that “reflect” each other will be paired.</li>
+<li><strong>Add Pair</strong> allows you to add a pair manually.</li>
+<li><strong>Add All Pairs</strong> allows to add all bone pairs.</li>
+<li>Only half of the bones are shown.</li>
+<li>For each mirrored/paired bone you have:
+<ul>
+<li>Its transforms name.</li>
+<li><strong>Remove Pair</strong> will “unpair” the bone.</li>
+<li><strong>Game Object</strong> represents the game object of the bone.</li>
+<li><strong>Pair</strong> represents the other bone.</li>
+</ul></li>
+</ul>
+<h2 id="head-page">Head Page</h2>
+<ul>
+<li><strong>Set Head</strong> sets the head of the character.</li>
+<li><strong>Remove Head</strong> will remove the head.</li>
+<li><strong>Game Object</strong> represents the game object of the bone.</li>
+<li><strong>Loops</strong> if set 2, will make the head “bounce” twice when the character walks.</li>
+<li><strong>Path</strong> represents the path of head, when the character moves.</li>
+</ul>
+<h2 id="hands-page">Hands Page</h2>
+<ul>
+<li><strong>Add Hand</strong> lets you add a hand.</li>
+<li><strong>Remove Hand</strong> lets you remove a hand.</li>
+<li>When you set the mirror, and the character’s hands are paired, you only need to modify one hand.</li>
+<li><strong>Game Object</strong> represents the game object of the bone.</li>
+<li><strong>Loops</strong> if set 2, will make the hand “bounce” twice when the character walks.</li>
+<li><strong>Path</strong> represents the path of hand, when the character moves.</li>
+</ul>
+<h2 id="trunkchest-page">Trunk/Chest Page</h2>
+<ul>
+<li><strong>Trunk Twist Enabled</strong> determines whether the trunk should be twisted.
+<ul>
+<li><strong>Trunk Twist Auto</strong> true lets Charanim3D determine how to twist the trunk.</li>
+<li><strong>Trunk Twist Auto</strong> false lets you manually set the twisting of the trunk.</li>
+</ul></li>
+<li><strong>Trunk Angle Enabled</strong> says whether the trunk should have and angle during the motion.
+<ul>
+<li><strong>Trunk Angle</strong> is the actual angle.</li>
+<li><strong>Trunk Angle Speed</strong> is the speed at which the trunk should get to that angle.</li>
+</ul></li>
+<li><strong>Move Trunk With Head</strong> says whether the trunk should move with the head.</li>
+</ul>
+<h2 id="feet-page">Feet Page</h2>
+<ul>
+<li><strong>Gait</strong>
+<ul>
+<li><strong>Feet</strong> will contain each feet, and its position in the gait.</li>
+</ul></li>
+<li><strong>Gait Autogenerate</strong> if selected, the gait will be generated based on the parameters below.
+<ul>
+<li><strong>Step Count</strong> represents the number of steps in the gait cycle.</li>
+<li><strong>Next Gait</strong> lets you change the orders of the feet in the gait.</li>
+</ul></li>
+<li><strong>Step Parameters</strong>
+<ul>
+<li><strong>Pass</strong>
+<ul>
+<li>If greater than zero, character in running.</li>
+<li>If less than zero, character is “slow” walking.</li>
+</ul></li>
+<li><strong>Step Displacement</strong><br />
+</li>
+</ul></li>
+<li><strong>Strike Angle</strong> represents the strike angle of the feet.</li>
+<li><strong>Add Foot</strong> lets you add a foot.</li>
+<li>When you set the mirror and the character’s feet are paired, you only need to modify one foot.</li>
+<li><strong>Game Object</strong> represents the game object of the bone.</li>
+<li><strong>Path</strong> represents the path of the foot when the character moves.</li>
+<li><strong>Colliders</strong> are a set of points representing the bottom of the foot.</li>
+</ul>
+<h2 id="options-page">Options Page</h2>
+<ul>
+<li><strong>Handle Size</strong> is the size of the handles in the scene view.</li>
+<li><strong>Export Animation Data</strong> exports the whole animation, the resulting file should be linked when sending bugs.</li>
+</ul>
+<hr />
+<p><strong>Contact</strong> <a href="http://www.Charanim3D.com/">http://www.Charanim3D.com/</a> charanim3dofficial@gmail.com</p>
+</body>
+</html>
